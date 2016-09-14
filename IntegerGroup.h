@@ -1,5 +1,5 @@
-#ifndef DATAGROUP_H
-#define DATAGROUP_H
+#ifndef INTEGERGROUP_H
+#define INTEGERGROUP_H
 
 #include "Array.h"
 #include <vector>	// for some reason, this didn't work.
