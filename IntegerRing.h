@@ -7,30 +7,36 @@
 class IntegerRing : public IntegerGroup
 {
 	public:
-		class Element : public IntegerGroup::GroupElement
+		IntegerRing();
+		IntegerRing(int);
+		IntegerRing(const IntegerGroup&);
+		class Element : public IntegerGroup::GroupElement::GroupElement
 		{
+			Element * inverse;
 			public: 
-				using IntegerGroup::GroupElement;
-				/*Element();
-				Element(int);
-				Element(int, IntegerRing*);
-				~Element();*/
+				Element();
+				Element(int, IntegerGroup*);
+				//~Element();
 				operator IntegerGroup::GroupElement() { return IntegerGroup::GroupElement(); }
-				Element(const IntegerGroup::GroupElement& el)
-				{
-					// copy everything from el into *this
-					this->m = el.m;
-					this->group = el.group;
-				}
-				/*Element operator+(const Element&);
+				Element(const IntegerGroup::GroupElement&);
+				Element operator+(int);
+				Element operator+(const Element&);
+				friend Element operator+(int, const Element&);
+				Element operator-();
+				Element operator-(int);
 				Element operator-(const Element&);
+				friend Element operator-(int, const Element&);
+				Element operator*(int);
 				Element operator*(const Element&);
+				friend Element operator*(int, const Element&);
 				Element operator+=(const Element&);
 				Element operator-=(const Element&);
-				Element operator*=(const Element&);*/
+				Element operator*=(const Element&);
 				
 		};
 		Element identity(Operators);
+		Element inverse(int);
+		Element inverse(const Element&);
 	private:
 		
 };
