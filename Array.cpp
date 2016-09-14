@@ -14,8 +14,7 @@
 template <typename Object>
 Array<Object>::Array()
 {
-    //make an empty array
-    this->internalDataStorage = new(std::nothrow) Object[0];
+    this->internalDataStorage = 0;
     this->length = 0;
 }
 
